@@ -44,7 +44,7 @@ const fetchContactList = async () => {
   for (contact of contactList) {
     contactNo += 1;
     console.log(contact);
-    let accItem = ` <div class="accordion-item">
+    let accItem = ` <div class="accordion-item" style="background-color: #f8c61e; color: #2C5F2DFF">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
@@ -62,7 +62,7 @@ const fetchContactList = async () => {
                                 <div >
                                     <img src="${contact.picture.large}" class="rounded-circle" alt="">
                                 </div>
-                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                <div class="d-flex justify-content-center align-items-center flex-column gap-2">
                                     <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
                                     <span>${contact.phone}</span>
                                     <span>${contact.email}</span>
