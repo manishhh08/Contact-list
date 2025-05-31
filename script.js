@@ -84,5 +84,20 @@ let appElement = document.getElementById("app1");
 appElement.addEventListener("click", () => {
   displayScreen("contact-screen");
 });
+//update current time
+const updateTime = () => {
+  let date = new Date();
+  let currentHour = date.getHours();
+  let currentMinute = date.getMinutes();
+
+  let timeSpans = document.getElementsByClassName("time");
+
+  for (elem of timeSpans) {
+    // elem.innerText = currentHour + " : " + currentMinute;
+    elem.innerText = `${currentHour}:${currentMinute}`;
+  }
+};
+
+updateTime();
 
 fetchContactList();
