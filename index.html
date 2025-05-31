@@ -31,7 +31,7 @@
       class="wrapper min-vh-100 bg-primary d-flex justify-content-center align-items-center"
     >
       <div
-        class="phone bg-success rounded-5 border border-5 border-black shadow-lg overflow-y-scroll"
+        class="phone bg-secondary rounded-5 border border-5 border-black shadow-lg overflow-y-scroll"
         style="height: 600px; width: 300px"
       >
         <!-- notification panel -->
@@ -75,16 +75,22 @@
         </main>
 
         <!-- app screen -->
-        <main id="app-screen" class="screen h-100 bg-success hidden">
-          <div>Home</div>
-          <div id="app1">Contact Page</div>
-          <div>Song generator</div>
+        <main id="app-screen" class="screen h-100 bg-success">
+          <div
+            class="screen h-80 bg-warning d-flex justify-content-center align-items-center flex-column gap-2"
+          >
+            <div><i class="fa-solid fa-house-user"></i>Home</div>
+            <div id="app1">
+              <i class="fa-solid fa-address-card"></i>Contact Page
+            </div>
+            <div><i class="fa-solid fa-music"></i>Song generator</div>
+          </div>
         </main>
 
         <!-- contact screen -->
         <main
-          id="contact-screen hidden"
-          class="screen h-100 bg-transparent text-white"
+          id="contact-screen"
+          class="screen h-100 bg-transparent text-white hidden"
         >
           <div class="sub-screen d-flex flex-column align-items-center">
             <h1 class="text-dark">Contacts</h1>

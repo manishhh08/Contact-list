@@ -51,22 +51,22 @@ const fetchContactList = async () => {
                                 <img src="${contact.picture.thumbnail}" />
                                 <div>
                                     <div>${contact.name.first} ${contact.name.last}</div>
-                                    <div>Location</div>
+                                    <div>${contact.location.city}, ${contact.location.country}</div>
                                 </div>
 
                             </button>
                         </h2>
                         <div id="contact-${contactNo}" class="accordion-collapse collapse"
                             data-bs-parent="#contactList">
-                            <div class="accordion-body">
-                                <div>
-                                    <img src="${contact.picture.large}" alt="">
+                            <div class="accordion-body d-flex justify-content-center align-items-center flex-column">
+                                <div >
+                                    <img src="${contact.picture.large}" class="rounded-circle" alt="">
                                 </div>
-                                <div>
-                                    <span>NAME</span>
-                                    <span>PHONE</span>
-                                    <span>Email</span>
-                                    <span>Location</span>
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
+                                    <span>${contact.phone}</span>
+                                    <span>${contact.email}</span>
+                                    <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
                                 </div>
 
                             </div>
