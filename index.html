@@ -45,7 +45,10 @@
           </div>
         </div>
         <!-- homescreen -->
-        <main id="home-screen" class="screen h-100 p-4 position-relative">
+        <main
+          id="home-screen"
+          class="screen h-100 p-4 position-relative hidden"
+        >
           <div class="sub-screen h-100 d-flex justify-content-center">
             <div
               class="time-container position-absolute rounded-5 text-center d-flex justify-content-center align-items-center p-4 text-white"
@@ -73,13 +76,15 @@
 
         <!-- app screen -->
         <main id="app-screen" class="screen h-100 bg-success hidden">
-          <div id="app1">App1</div>
+          <div>Home</div>
+          <div id="app1">Contact Page</div>
+          <div>Song generator</div>
         </main>
 
         <!-- contact screen -->
         <main
           id="contact-screen hidden"
-          class="screen h-100 bg-transparent text-white hidden"
+          class="screen h-100 bg-transparent text-white"
         >
           <div class="sub-screen d-flex flex-column align-items-center">
             <h1 class="text-dark">Contacts</h1>
