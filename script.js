@@ -105,7 +105,9 @@ const updateTime = () => {
 
   for (elem of timeSpans) {
     // elem.innerText = currentHour + " : " + currentMinute;
-    elem.innerText = `${currentHour}:${currentMinute}`;
+    elem.innerText = `${currentHour.toString().padStart(2, "0")}:${currentMinute
+      .toString()
+      .padStart(2, "0")}`;
   }
 };
 
