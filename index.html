@@ -85,7 +85,7 @@
               <i class="fa-solid fa-address-card"></i>Contact Page
             </div>
             <div id="song-generator">
-              <i class="fa-solid fa-music"></i>Song generator
+              <i class="fa-solid fa-music"></i>Song Generator
             </div>
           </div>
         </main>
@@ -93,9 +93,31 @@
         <!-- contact screen -->
         <main
           id="contact-screen"
-          class="screen h-100 bg-transparent text-white hidden"
+          class="screen h-100 text-white hidden"
+          style="background-color: brown"
         >
           <div class="sub-screen d-flex flex-column align-items-center">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="container-fluid bg-dark">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="#"
+                      id="home"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="song-generator">Song</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
             <h1 class="text-dark">Contacts</h1>
             <div class="w-100 p-2">
               <input type="text" class="w-100 rounded-3 border-0" />
@@ -149,19 +171,24 @@
         </main>
 
         <!-- song generator screen -->
-        <main id="song-generator-screen" class="screen h-100 bg-success">
+        <main id="song-generator-screen" class="screen h-100 position-relative" 
+        style="background-image: url(asset/song.jpg);">
           <div
-            class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5"
+            class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 "
           >
-            <div id="song-generator">
+            <div id="sub-screen h-80 bg-dark">
               <i class="fa-solid fa-music"></i>Song generator
             </div>
-            <h2 class="c">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              iusto sit omnis delectus mollitia rem eius? Et temporibus,
-              inventore fugiat, facere amet, aperiam adipisci dicta consequatur
-              id libero soluta labore.
-            </h2>
+            <div class=""
+            
+            >
+              <button type="button" class="btn btn-secondary">Previous</button>
+              <button type="button" class="btn btn-dark">Pause</button>
+              <button type="button" class="btn btn-success">Next</button>
+          </div>
+          </div>
+          </div>
+            </div>
           </div>
         </main>
       </div>

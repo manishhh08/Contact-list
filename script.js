@@ -92,7 +92,7 @@ appElement.addEventListener("click", () => {
 //get song generator page
 let songElement = document.getElementById("song-generator");
 songElement.addEventListener("click", () => {
-  displayScreen("");
+  displayScreen("song-generator-screen");
 });
 
 //update current time
