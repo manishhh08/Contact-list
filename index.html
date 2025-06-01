@@ -47,7 +47,7 @@
         <!-- homescreen -->
         <main
           id="home-screen"
-          class="screen h-100 p-4 position-relative"
+          class="screen h-100 p-4 position-relative hidden"
           style="background-image: url(asset/background.jpg)"
         >
           <div class="sub-screen h-100 d-flex justify-content-center">
@@ -76,15 +76,17 @@
         </main>
 
         <!-- app screen -->
-        <main id="app-screen" class="screen h-100 bg-success">
+        <main id="app-screen" class="screen h-100 bg-success hidden">
           <div
-            class="screen h-80 bg-warning d-flex justify-content-center align-items-center flex-column gap-2"
+            class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5"
           >
-            <div><i class="fa-solid fa-house-user"></i>Home</div>
-            <div id="app1">
+            <div id="home"><i class="fa-solid fa-house-user"></i>Home</div>
+            <div id="contact">
               <i class="fa-solid fa-address-card"></i>Contact Page
             </div>
-            <div><i class="fa-solid fa-music"></i>Song generator</div>
+            <div id="song-generator">
+              <i class="fa-solid fa-music"></i>Song generator
+            </div>
           </div>
         </main>
 
@@ -143,6 +145,23 @@
                 </div>
               </div>
             </div>
+          </div>
+        </main>
+
+        <!-- song generator screen -->
+        <main id="song-generator-screen" class="screen h-100 bg-success">
+          <div
+            class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5"
+          >
+            <div id="song-generator">
+              <i class="fa-solid fa-music"></i>Song generator
+            </div>
+            <h2 class="c">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+              iusto sit omnis delectus mollitia rem eius? Et temporibus,
+              inventore fugiat, facere amet, aperiam adipisci dicta consequatur
+              id libero soluta labore.
+            </h2>
           </div>
         </main>
       </div>

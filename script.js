@@ -79,11 +79,22 @@ const fetchContactList = async () => {
   contactListElement.innerHTML = accItems;
 };
 
-// get the app element
-let appElement = document.getElementById("app1");
+//get the home screen
+let homeElement = document.getElementById("home");
+homeElement.addEventListener("click", () => {
+  displayScreen("home-screen");
+});
+// get the contact screen
+let appElement = document.getElementById("contact");
 appElement.addEventListener("click", () => {
   displayScreen("contact-screen");
 });
+//get song generator page
+let songElement = document.getElementById("song-generator");
+songElement.addEventListener("click", () => {
+  displayScreen("");
+});
+
 //update current time
 const updateTime = () => {
   let date = new Date();
