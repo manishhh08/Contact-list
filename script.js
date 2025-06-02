@@ -94,6 +94,19 @@ let songElement = document.getElementById("song-generator");
 songElement.addEventListener("click", () => {
   displayScreen("song-generator-screen");
 });
+//get temperature converter page
+function convertToFahrenheit() {
+  const celsius = parseFloat(document.getElementById("temp").value);
+  if (isNaN(celsius)) {
+    document.getElementById("result").textContent =
+      "Please enter a valid number.";
+    return;
+  }
+  const fahrenheit = (celsius * 9) / 5 + 32;
+  document.getElementById(
+    "result"
+  ).textContent = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+}
 
 //update current time
 const updateTime = () => {
@@ -112,5 +125,13 @@ const updateTime = () => {
 };
 
 updateTime();
+
+//temperature converter
+// const convertTemp=()=>{
+//  celsiusToFahrenheit(celsius) {
+//   return (celsius * 9/5) + 32;
+// };
+// }
+// convertTemp();
 
 fetchContactList();
