@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  perspective: 600px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip {
+  transform: rotateY(180deg) translateY(-100px);
+  cursor: pointer;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px 1px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.card-front {
+}
+
+.card-electric {
+  background-color: yellow;
+}
+
+.card-grass {
+  background-color: rgb(72, 226, 37);
+}
+
+.card-front > img {
+  width: 100px;
+  height: auto;
+}
+
+.card-back {
+  background-color: rgb(255, 255, 255);
+  transform: rotateY(180deg);
+}
