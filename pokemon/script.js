@@ -43,7 +43,7 @@ const generatePokeCards = () => {
 };
 
 const fetchPokemonData = async () => {
-  const response = await fetch("http://127.0.0.1:5501/pokemon.json");
+  const response = await fetch("http://127.0.0.1:5500/pokemon.json");
   const data = await response.json();
 
   console.log(101, data);
