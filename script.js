@@ -1,4 +1,5 @@
 let contactList = [];
+// add spinner and search here
 
 // display screens
 const displayScreen = (screenName) => {
@@ -26,6 +27,7 @@ sliderElement.addEventListener("change", (event) => {
     sliderElement.value = 0;
   }
 });
+//search contact function here
 
 // function to fetch contact list
 const fetchContactList = async () => {
