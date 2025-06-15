@@ -89,78 +89,81 @@
            
           
           -->
-          <!-- add loading spinner class here
-           
-          -->
+
           <h1 class="text-dark">Contacts</h1>
-          <div class="w-100 p-2">
-            <input type="text" class="w-100 rounded-3 border-0" />
+          <div class="w-100 p-2 text-center">
+            <!-- search and loading spinner -->
+            <input type="text" class="w-100 rounded-3 border-0" placeholder="search" id="search">
+            <div class="spinner-border text-primary mt-4" role="status" id="spinner">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-          <div class="w-100">
-            <div class="accordion" id="contactList">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <img src="https://randomuser.me/api/portraits/women/62.jpg" />
-                    <!-- <div style="background-color: #f8c61e; color: #252c37"> -->
-                    <div>
-                      <div>NAME</div>
-                      <div>Location</div>
-                    </div>
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#contactList">
-                  <div class="accordion-body">
-                    <div>
-                      <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="" />
-                    </div>
-                    <div>
-                      <span>NAME</span>
-                      <span>PHONE</span>
-                      <span>Email</span>
-                      <span>Location</span>
-                    </div>
+        </div>
+        <div class="w-100">
+          <div class="accordion" id="contactList">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <img src="https://randomuser.me/api/portraits/women/62.jpg" />
+                  <!-- <div style="background-color: #f8c61e; color: #252c37"> -->
+                  <div>
+                    <div>NAME</div>
+                    <div>Location</div>
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#contactList">
+                <div class="accordion-body">
+                  <div>
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="" />
+                  </div>
+                  <div>
+                    <span>NAME</span>
+                    <span>PHONE</span>
+                    <span>Email</span>
+                    <span>Location</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </main>
-
-      <!-- song generator screen -->
-      <main id="song-generator-screen" class="screen h-100 hidden" style="background-image: url(asset/song.jpg);">
-        <div class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 ">
-          <div id="sub-screen h-80 bg-dark">
-            <!-- <i class="fa-solid fa-music"></i> -->
-            Temp generator
-          </div>
-          <div class="">
-            <button type="button" class="btn btn-secondary">Previous</button>
-            <button type="button" class="btn btn-dark">Pause</button>
-            <button type="button" class="btn btn-success">Next</button>
-          </div>
-        </div>
-      </main>
-
-
-      <!-- temperature converter screen -->
-      <main id="temp-converter-screen" class="screen h-100 hidden">
-        <div class="sub-screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 pt-5 text-dark">
-          <!-- style="background-image: url(asset/calc.jpg); height: 300px; width: 300px; background-position: center; background-size: cover;" -->
-          Enter temperature in Celcius
-          <input type="text" id="temp" placeholder="Enter temperature">
-          <p class="text-center">Your temperature in Fahrenheit is:</p>
-          <!-- <input type="text" id="result" placeholder="Calculated temperature:"> Your temperature in Fahrenheit is: -->
-          <div id="result"></div>
-          <button type="button" onclick="convertToFahrenheit()">Calculate</button>
-
-
-        </div>
-      </main>
-
     </div>
+    </main>
+
+    <!-- song generator screen -->
+    <main id="song-generator-screen" class="screen h-100 hidden" style="background-image: url(asset/song.jpg);">
+      <div class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 ">
+        <div id="sub-screen h-80 bg-dark">
+          <!-- <i class="fa-solid fa-music"></i> -->
+          Temp generator
+        </div>
+        <div class="">
+          <button type="button" class="btn btn-secondary">Previous</button>
+          <button type="button" class="btn btn-dark">Pause</button>
+          <button type="button" class="btn btn-success">Next</button>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- temperature converter screen -->
+    <main id="temp-converter-screen" class="screen h-100 hidden">
+      <div class="sub-screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 pt-5 text-dark">
+        <!-- style="background-image: url(asset/calc.jpg); height: 300px; width: 300px; background-position: center; background-size: cover;" -->
+        Enter temperature in Celcius
+        <input type="text" id="temp" placeholder="Enter temperature">
+        <p class="text-center">Your temperature in Fahrenheit is:</p>
+        <!-- <input type="text" id="result" placeholder="Calculated temperature:"> Your temperature in Fahrenheit is: -->
+        <div id="result"></div>
+        <button type="button" onclick="convertToFahrenheit()">Calculate</button>
+
+
+      </div>
+    </main>
+
+  </div>
   </div>
 </body>
 <!-- bootstrap js -->
