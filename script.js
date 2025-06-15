@@ -1,5 +1,7 @@
 let contactList = [];
-// add spinner and search here
+// add spinner and search element
+let spinnerElement = document.getElementById["spinner"];
+let searchElement = document.getElementById["search"];
 
 // display screens
 const displayScreen = (screenName) => {
@@ -28,7 +30,17 @@ sliderElement.addEventListener("change", (event) => {
   }
 });
 //search contact function here
+searchElement.addEventListener("keyup", (event) => {
+  console.log(event.target.value);
 
+  displayContactList = contactList.filter((item) => {
+    return (
+      item.name.first.toLowerCase().includes(event.target.value) ||
+      item.name.last.toLowerCase().includes(event.target.value)
+    );
+  });
+  fillContactList(displayContactList);
+});
 // function to fetch contact list
 const fetchContactList = async () => {
   const response = await fetch("https://randomuser.me/api?results=3");
