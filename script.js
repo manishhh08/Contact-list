@@ -43,17 +43,16 @@ const fillContactList = (cl) => {
                         </h2>
                         <div id="contact-${contactNo}" class="accordion-collapse collapse"
                             data-bs-parent="#contactList">
-                            <div class="accordion-body">
+                            <div class="accordion-body d-flex flex-column align-items-center justify-content-center">
                                 <div>
                                     <img src="${contact.picture.large}" alt="">
                                 </div>
                                 <div>
-                                  <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
-                                  <span>${contact.phone}</span>
-                                  <span>${contact.email}</span>
-                                  <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
+                                  <span class="fw-bold text-center">${contact.name.first} ${contact.name.last}</span> <br>
+                                  <span><i class="fa-solid fa-phone"></i>${contact.phone}</span><br>
+                                  <span><i class="fa-solid fa-envelope"></i>${contact.email}</span><br>
+                                  <span><i class="fa-solid fa-map-location"></i>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
                                 </div>
-
                             </div>
                         </div>
                     </div>`;

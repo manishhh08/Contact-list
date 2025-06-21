@@ -61,27 +61,31 @@
           <div id="song-generator">
             <i class="fa-solid fa-music"></i>Song Generator
           </div>
-          <div id="temp-converter" onclick="displayScreen('temp-converter-screen')">
+          <div id="temp-converter">
             <i class="fa-solid fa-temperature-three-quarters"></i> Temperature Generator
           </div>
         </div>
       </main>
 
       <!-- contact screen -->
-      <main id="contact-screen" class="screen h-100 text-white hidden" style="background-color: brown">
+      <main id="contact-screen" class="screen h-100 text-white " style="background-color: brown">
         <div class="sub-screen d-flex flex-column align-items-center">
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid bg-dark">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <!-- add button onclick function here -->
-                  <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
+                  <a class="nav-link active" aria-current="page" onclick="displayScreen('home-screen') "
+                    id="home">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" id="contact">Contact</a>
+                  <a class="nav-link" onclick="displayScreen('contact-screen')" id="contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" id="song-generator">Song</a>
+                  <a class="nav-link" onclick="displayScreen('song-generator-screen')" id="song-generator">Song</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" onclick="displayScreen('temp-converter-screen')" id="temp-converter">Temp </a>
                 </li>
               </ul>
             </div>
@@ -100,35 +104,9 @@
             </div>
           </div>
         </div>
+        <!-- contact list gets updated here -->
         <div class="w-100">
-          <div class="accordion" id="contactList">
-            <!-- <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <img src="https://randomuser.me/api/portraits/women/62.jpg" />
-                  <div style="background-color: #f8c61e; color: #252c37">
-                  <div>
-                    <div>NAME</div>
-                    <div>Location</div>
-                  </div>
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#contactList">
-                <div class="accordion-body">
-                  <div>
-                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="" />
-                  </div>
-                  <div>
-                    <span>NAME</span>
-                    <span>PHONE</span>
-                    <span>Email</span>
-                    <span>Location</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-          </div>
+          <div class="accordion" id="contactList"></div>
         </div>
     </div>
     </main>
