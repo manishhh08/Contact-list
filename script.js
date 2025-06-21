@@ -30,67 +30,82 @@ sliderElement.addEventListener("change", (event) => {
   }
 });
 //search contact function here
-// searchElement.addEventListener("keyup", (event) => {
-//   console.log(event.target.value);
+searchElement.addEventListener("keyup", (event) => {
+  console.log(event.target.value);
 
-//   displayContactList = contactList.filter((item) => {
-//     return (
-//       item.name.first.toLowerCase().includes(event.target.value) ||
-//       item.name.last.toLowerCase().includes(event.target.value)
-//     );
-//   });
-//   fillContactList(displayContactList);
-// });
+  displayContactList = contactList.filter((item) => {
+    return (
+      item.name.first.toLowerCase().includes(event.target.value) ||
+      item.name.last.toLowerCase().includes(event.target.value)
+    );
+  });
+  fillContactList(displayContactList);
+});
 // function to fetch contact list
 const fetchContactList = async () => {
+  spinnerElement.classList.remove("hidden");
   const response = await fetch("https://randomuser.me/api?results=3");
   const data = await response.json();
   console.log(data.results);
 
   contactList = data.results;
 
-  let contactListElement = document.getElementById("contactList");
+  fillContactList(contactList);
 
-  let accItems = "";
+  const fetchContactListUsingThen=()=>{
+    console.log('before fetch');
+    fetch("https://randomuser.me/api?results=3").then((response)=>{
+      console.log("inside fetch");
+      response.json().then((data) => {
+        contactList=data.results;
+         let contactListElement = document.getElementById("contactList");
 
-  let contactNo = 0;
+      let accItems = "";
 
-  for (contact of contactList) {
-    contactNo += 1;
-    console.log(contact);
-    let accItem = ` <div class="accordion-item" style="background-color: #f8c61e; color: #2C5F2DFF">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
-                                <img src="${contact.picture.thumbnail}" />
-                                <div>
-                                    <div>${contact.name.first} ${contact.name.last}</div>
-                                    <div>${contact.location.city}, ${contact.location.country}</div>
+      let contactNo = 0;
+
+      for (contact of contactList) {
+        contactNo += 1;
+        console.log(contact);
+        let accItem = ` <div class="accordion-item" style="background-color: #f8c61e; color: #2C5F2DFF">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
+                                    <img src="${contact.picture.thumbnail}" />
+                                    <div>
+                                        <div>${contact.name.first} ${contact.name.last}</div>
+                                        <div>${contact.location.city}, ${contact.location.country}</div>
+                                    </div>
+
+                                </button>
+                            </h2>
+                            <div id="contact-${contactNo}" class="accordion-collapse collapse"
+                                data-bs-parent="#contactList">
+                                <div class="accordion-body d-flex justify-content-center align-items-center flex-column">
+                                    <div >
+                                        <img src="${contact.picture.large}" class="rounded-circle" alt="">
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center flex-column gap-2">
+                                        <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
+                                        <span>${contact.phone}</span>
+                                        <span>${contact.email}</span>
+                                        <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
+                                    </div>
+
                                 </div>
-
-                            </button>
-                        </h2>
-                        <div id="contact-${contactNo}" class="accordion-collapse collapse"
-                            data-bs-parent="#contactList">
-                            <div class="accordion-body d-flex justify-content-center align-items-center flex-column">
-                                <div >
-                                    <img src="${contact.picture.large}" class="rounded-circle" alt="">
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center flex-column gap-2">
-                                    <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
-                                    <span>${contact.phone}</span>
-                                    <span>${contact.email}</span>
-                                    <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
-                                </div>
-
                             </div>
-                        </div>
-                    </div>`;
+                        </div>`;
 
-    accItems += accItem;
-  }
+        accItems += accItem;
+      }
 
-  contactListElement.innerHTML = accItems;
+      contactListElement.innerHTML = accItems;
+    });
+          
+     });
+ 
+
+  console.log("AFTER FETCH");
 };
 
 //get the home screen
@@ -139,6 +154,7 @@ const updateTime = () => {
 };
 
 updateTime();
+setInterval(updateTime,6000);
 
 //temperature converter
 // const convertTemp=()=>{
@@ -147,5 +163,3 @@ updateTime();
 // };
 // }
 // convertTemp();
-
-fetchContactList();
