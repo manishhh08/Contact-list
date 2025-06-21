@@ -1,7 +1,8 @@
 let contactList = [];
+let displayContactList = [];
 // add spinner and search element
-let spinnerElement = document.getElementById["spinner"];
-let searchElement = document.getElementById["search"];
+let spinnerElement = document.getElementById("spinner");
+let searchElement = document.getElementById("search");
 
 // display screens
 const displayScreen = (screenName) => {
@@ -18,6 +19,50 @@ const displayScreen = (screenName) => {
 
 // get the slider element
 let sliderElement = document.getElementById("slide");
+const fillContactList = (cl) => {
+  spinnerElement.classList.remove("hidden");
+  let contactListElement = document.getElementById("contactList");
+
+  let accItems = "";
+  let contactNo = 0;
+
+  for (contact of cl) {
+    contactNo += 1;
+    console.log(contact);
+    let accItem = ` <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
+                                <img src="${contact.picture.thumbnail}" />
+                                <div>
+                                    <div>${contact.name.first} ${contact.name.last}</div>
+                                    <div>Location</div>
+                                </div>
+
+                            </button>
+                        </h2>
+                        <div id="contact-${contactNo}" class="accordion-collapse collapse"
+                            data-bs-parent="#contactList">
+                            <div class="accordion-body">
+                                <div>
+                                    <img src="${contact.picture.large}" alt="">
+                                </div>
+                                <div>
+                                    <span>NAME</span>
+                                    <span>PHONE</span>
+                                    <span>Email</span>
+                                    <span>Location</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>`;
+    accItems += accItem;
+  }
+  contactListElement.innerHTML = accItems;
+  console.log("after fetch");
+  spinnerElement.classList.add("hidden");
+};
 
 // unlock phone
 sliderElement.addEventListener("change", (event) => {
@@ -39,8 +84,10 @@ searchElement.addEventListener("keyup", (event) => {
       item.name.last.toLowerCase().includes(event.target.value)
     );
   });
+
   fillContactList(displayContactList);
 });
+
 // function to fetch contact list
 const fetchContactList = async () => {
   spinnerElement.classList.remove("hidden");
@@ -51,14 +98,15 @@ const fetchContactList = async () => {
   contactList = data.results;
 
   fillContactList(contactList);
+};
 
-  const fetchContactListUsingThen=()=>{
-    console.log('before fetch');
-    fetch("https://randomuser.me/api?results=3").then((response)=>{
-      console.log("inside fetch");
-      response.json().then((data) => {
-        contactList=data.results;
-         let contactListElement = document.getElementById("contactList");
+const fetchContactListUsingThen = () => {
+  console.log("before fetch");
+  fetch("https://randomuser.me/api?results=3").then((response) => {
+    console.log("inside fetch");
+    response.json().then((data) => {
+      contactList = data.results;
+      let contactListElement = document.getElementById("contactList");
 
       let accItems = "";
 
@@ -101,9 +149,7 @@ const fetchContactList = async () => {
 
       contactListElement.innerHTML = accItems;
     });
-          
-     });
- 
+  });
 
   console.log("AFTER FETCH");
 };
@@ -154,7 +200,7 @@ const updateTime = () => {
 };
 
 updateTime();
-setInterval(updateTime,6000);
+setInterval(updateTime, 6000);
 
 //temperature converter
 // const convertTemp=()=>{
