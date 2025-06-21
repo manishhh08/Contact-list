@@ -36,7 +36,7 @@ const fillContactList = (cl) => {
                                 <img src="${contact.picture.thumbnail}" />
                                 <div>
                                     <div>${contact.name.first} ${contact.name.last}</div>
-                                    <div>Location</div>
+                                    <div>${contact.location.country}</div>
                                 </div>
 
                             </button>
@@ -48,10 +48,10 @@ const fillContactList = (cl) => {
                                     <img src="${contact.picture.large}" alt="">
                                 </div>
                                 <div>
-                                    <span>NAME</span>
-                                    <span>PHONE</span>
-                                    <span>Email</span>
-                                    <span>Location</span>
+                                  <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
+                                  <span>${contact.phone}</span>
+                                  <span>${contact.email}</span>
+                                  <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
                                 </div>
 
                             </div>
@@ -60,13 +60,13 @@ const fillContactList = (cl) => {
     accItems += accItem;
   }
   contactListElement.innerHTML = accItems;
-  console.log("after fetch");
+  // console.log("after fetch");
   spinnerElement.classList.add("hidden");
 };
 
 // unlock phone
 sliderElement.addEventListener("change", (event) => {
-  console.log(event.target.value);
+  //console.log(event.target.value);
 
   if (event.target.value == "100") {
     displayScreen("app-screen");
@@ -91,68 +91,68 @@ searchElement.addEventListener("keyup", (event) => {
 // function to fetch contact list
 const fetchContactList = async () => {
   spinnerElement.classList.remove("hidden");
-  const response = await fetch("https://randomuser.me/api?results=3");
+  const response = await fetch("https://randomuser.me/api?results=15");
   const data = await response.json();
-  console.log(data.results);
+  //console.log(data.results);
 
   contactList = data.results;
 
   fillContactList(contactList);
 };
 
-const fetchContactListUsingThen = () => {
-  console.log("before fetch");
-  fetch("https://randomuser.me/api?results=3").then((response) => {
-    console.log("inside fetch");
-    response.json().then((data) => {
-      contactList = data.results;
-      let contactListElement = document.getElementById("contactList");
+// const fetchContactListUsingThen = () => {
+//   console.log("before fetch");
+//   fetch("https://randomuser.me/api?results=3").then((response) => {
+//     console.log("inside fetch");
+//     response.json().then((data) => {
+//       contactList = data.results;
+//       let contactListElement = document.getElementById("contactList");
 
-      let accItems = "";
+//       let accItems = "";
 
-      let contactNo = 0;
+//       let contactNo = 0;
 
-      for (contact of contactList) {
-        contactNo += 1;
-        console.log(contact);
-        let accItem = ` <div class="accordion-item" style="background-color: #f8c61e; color: #2C5F2DFF">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
-                                    <img src="${contact.picture.thumbnail}" />
-                                    <div>
-                                        <div>${contact.name.first} ${contact.name.last}</div>
-                                        <div>${contact.location.city}, ${contact.location.country}</div>
-                                    </div>
+//       for (contact of contactList) {
+//         contactNo += 1;
+//         console.log(contact);
+//         let accItem = ` <div class="accordion-item" style="background-color: #f8c61e; color: #2C5F2DFF">
+//                             <h2 class="accordion-header">
+//                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+//                                     data-bs-target="#contact-${contactNo}" aria-expanded="true" aria-controls="contact-${contactNo}">
+//                                     <img src="${contact.picture.thumbnail}" />
+//                                     <div>
+//                                         <div>${contact.name.first} ${contact.name.last}</div>
+//                                         <div>${contact.location.city}, ${contact.location.country}</div>
+//                                     </div>
 
-                                </button>
-                            </h2>
-                            <div id="contact-${contactNo}" class="accordion-collapse collapse"
-                                data-bs-parent="#contactList">
-                                <div class="accordion-body d-flex justify-content-center align-items-center flex-column">
-                                    <div >
-                                        <img src="${contact.picture.large}" class="rounded-circle" alt="">
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center flex-column gap-2">
-                                        <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
-                                        <span>${contact.phone}</span>
-                                        <span>${contact.email}</span>
-                                        <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
-                                    </div>
+//                                 </button>
+//                             </h2>
+//                             <div id="contact-${contactNo}" class="accordion-collapse collapse"
+//                                 data-bs-parent="#contactList">
+//                                 <div class="accordion-body d-flex justify-content-center align-items-center flex-column">
+//                                     <div >
+//                                         <img src="${contact.picture.large}" class="rounded-circle" alt="">
+//                                     </div>
+//                                     <div class="d-flex justify-content-center align-items-center flex-column gap-2">
+//                                         <span class="fw-bold">${contact.name.first} ${contact.name.last}</span>
+//                                         <span>${contact.phone}</span>
+//                                         <span>${contact.email}</span>
+//                                         <span>${contact.location.street.number} ${contact.location.street.name}, ${contact.location.city}, ${contact.location.country}</span>
+//                                     </div>
 
-                                </div>
-                            </div>
-                        </div>`;
+//                                 </div>
+//                             </div>
+//                         </div>`;
 
-        accItems += accItem;
-      }
+//         accItems += accItem;
+//       }
 
-      contactListElement.innerHTML = accItems;
-    });
-  });
+//       contactListElement.innerHTML = accItems;
+//     });
+//   });
 
-  console.log("AFTER FETCH");
-};
+//   console.log("AFTER FETCH");
+// };
 
 //get the home screen
 let homeElement = document.getElementById("home");
@@ -163,6 +163,7 @@ homeElement.addEventListener("click", () => {
 let appElement = document.getElementById("contact");
 appElement.addEventListener("click", () => {
   displayScreen("contact-screen");
+  fetchContactList();
 });
 //get song generator page
 let songElement = document.getElementById("song-generator");
