@@ -52,7 +52,7 @@
       </main>
 
       <!-- app screen -->
-      <main id="app-screen" class="screen h-100 bg-success"
+      <main id="app-screen" class="screen h-100 bg-success hidden"
         style="background-image: url(asset/app-bg.jpg); background-size: contain;">
         <div class=" screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 text-white">
           <div id="home"><i class="fa-solid fa-house-user"></i>Home</div>
@@ -69,24 +69,26 @@
       </main>
 
       <!-- contact screen -->
-      <main id="contact-screen" class="screen h-100 text-white " style="background-color: brown">
+      <main id="contact-screen" class="screen h-100 hidden" style="background-color: brown">
         <div class="sub-screen d-flex flex-column align-items-center">
-          <nav class="navbar navbar-expand-lg navbar-light">
+          <nav class="navbar navbar-expand-lg navbar-light text-white">
             <div class="container-fluid bg-dark">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <!-- add button onclick function here -->
-                  <a class="nav-link active" aria-current="page" onclick="displayScreen('home-screen') "
+                  <a class="nav-link active  text-white" aria-current=" page" onclick="displayScreen('home-screen') "
                     id="home">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" onclick="displayScreen('contact-screen')" id="contact">Contact</a>
+                  <a class="nav-link text-white" onclick=" displayScreen('contact-screen')" id="contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" onclick="displayScreen('song-generator-screen')" id="song-generator">Song</a>
+                  <a class="nav-link text-white" onclick=" displayScreen('song-generator-screen')"
+                    id="song-generator">Song</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" onclick="displayScreen('temp-converter-screen')" id="temp-converter">Temp </a>
+                  <a class="nav-link text-white" onclick=" displayScreen('temp-converter-screen')"
+                    id="temp-converter">Temp </a>
                 </li>
               </ul>
             </div>
@@ -109,40 +111,36 @@
         <div class="w-100">
           <div class="accordion" id="contactList"></div>
         </div>
-    </div>
-    </main>
+      </main>
 
-
-    <!-- song generator screen -->
-    <main id="song-generator-screen" class="screen h-100 hidden" style="background-image: url(asset/song.jpg);">
-      <div class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 ">
-        <div id="sub-screen h-80 bg-dark">
-          <!-- Temp generator -->
-          <button type="button" class="btn btn-secondary">Previous</button>
-          <button type="button" class="btn btn-dark">Pause</button>
-          <button type="button" class="btn btn-success">Next</button>
+      <!-- song generator screen -->
+      <main id="song-generator-screen" class="screen h-100 hidden" style="background-image: url(asset/song.jpg);">
+        <div class="screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 ">
+          <div id="sub-screen h-80 bg-dark">
+            <!-- Temp generator -->
+            <button type="button" class="btn btn-secondary">Previous</button>
+            <button type="button" class="btn btn-dark">Pause</button>
+            <button type="button" class="btn btn-success">Next</button>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
 
 
-    <!-- temperature converter screen -->
-    <main id="temp-converter-screen" class="screen h-100 hidden">
-      <div class="sub-screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 pt-5 text-dark">
-        <!-- style="background-image: url(asset/calc.jpg); height: 300px; width: 300px; background-position: center; background-size: cover;" -->
-        Enter temperature in Celcius
-        <input type="text" id="temp" placeholder="Enter temperature">
-        <p class="text-center">Your temperature in Fahrenheit is:</p>
-        <!-- <input type="text" id="result" placeholder="Calculated temperature:"> Your temperature in Fahrenheit is: -->
-        <div id="result"></div>
-        <button type="button" onclick="convertToFahrenheit()">Calculate</button>
-
-
-      </div>
-    </main>
-
+      <!-- temperature converter screen -->
+      <main id="temp-converter-screen" class="screen h-100 "
+        style="background-image: url(asset/calc.jpg); background-size: cover; background-repeat: no-repeat;">
+        <div
+          class="sub-screen h-100 d-flex justify-content-center align-items-center flex-column gap-5 pt-5 text-white">
+          Enter temperature in Celcius
+          <input type="text" id="temp" placeholder="Enter temperature">
+          <p class="text-center">Your temperature in Fahrenheit is:</p>
+          <div id="result"></div>
+          <button type="button" onclick="convertToFahrenheit()">Calculate</button>
+        </div>
+      </main>
+    </div>
   </div>
-  </div>
+
 </body>
 <!-- bootstrap js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
