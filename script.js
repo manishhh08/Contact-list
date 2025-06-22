@@ -170,6 +170,10 @@ songElement.addEventListener("click", () => {
   displayScreen("song-generator-screen");
 });
 //get temperature converter page
+let tempElement = document.getElementById("temp-converter");
+tempElement.addEventListener("click", () => {
+  displayScreen("temp-converter-screen");
+});
 function convertToFahrenheit() {
   const celsius = parseFloat(document.getElementById("temp").value);
   if (isNaN(celsius)) {
